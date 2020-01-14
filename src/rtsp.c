@@ -2434,19 +2434,19 @@ int rtsp_response_header_read(char *msg,
 				/* 'CSeq' */
 				header->cseq = atoi(value);
 
-			} else if (!strncasecmp(field,
-						RTSP_HEADER_DATE,
-						strlen(RTSP_HEADER_DATE))) {
-				/* 'Date' */
-				uint64_t epoch_sec = 0;
-				int32_t utc_offset_sec = 0;
-				ret = time_local_parse(
-					value, &epoch_sec, &utc_offset_sec);
-				if (ret < 0) {
-					ULOG_ERRNO("time_local_parse", -ret);
-					return ret;
-				}
-				header->date = epoch_sec;
+			// } else if (!strncasecmp(field,
+			// 			RTSP_HEADER_DATE,
+			// 			strlen(RTSP_HEADER_DATE))) {
+			// 	/* 'Date' */
+			// 	uint64_t epoch_sec = 0;
+			// 	int32_t utc_offset_sec = 0;
+			// 	ret = time_local_parse(
+			// 		value, &epoch_sec, &utc_offset_sec);
+			// 	if (ret < 0) {
+			// 		ULOG_ERRNO("time_local_parse", -ret);
+			// 		return ret;
+			// 	}
+			// 	header->date = epoch_sec;
 
 			} else if (!strncasecmp(field,
 						RTSP_HEADER_SESSION,
